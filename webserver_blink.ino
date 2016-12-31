@@ -1,9 +1,9 @@
 #include <ESP8266WiFi.h>
  
-const char* ssid = "wifiname";
-const char* password = "wifipassword";
+const char* ssid = "salfar";
+const char* password = "salfarhome4";
  
-int ledPin = 13; // GPIO13 
+int ledPin = 13; // GPIO13
 WiFiServer server(80);
  
 void setup() {
@@ -79,17 +79,40 @@ void loop() {
   client.println(""); //  do not forget this one
   client.println("<!DOCTYPE HTML>");
   client.println("<html>");
- 
-  client.print("Led pin is now: ");
+  client.print("<body style='background: #00979C'>");
+  client.println("<h1 align ='center'>");
+  client.println("<font-color='red'>");
+  client.println("FoxLab");
+  client.println("</font>");
+  client.println("</h1>");
+
+  client.println("<bg color ='#00ff00'>");
+  client.println("</bg>");
+
+  client.println("<p align ='center'>");
+  client.print("Led is Now: ");
+  client.println("</p>");
  
   if(value == HIGH) {
+    client.println("<p align ='center'>");
     client.print("On");
+    client.println("</p>");
   } else {
+    client.println("<p align ='center'>");
     client.print("Off");
+    client.println("</p>");
   }
   client.println("<br><br>");
-  client.println("<a href=\"/LED=ON\"\"><button>Turn On </button></a>");
-  client.println("<a href=\"/LED=OFF\"\"><button>Turn Off </button></a><br />");  
+  client.println("<p align ='center'>");
+  client.println("<a  href=\"/LED=ON\"\"><button>Turn On </button></a>");
+  client.println("<a  href=\"/LED=OFF\"\"><button>Turn Off </button></a><br />");  
+  client.println("</p>");
+  client.println("<p>");
+  client.println("<marquee direction='right'>");
+  client.println("Developed by Salman Faris ");
+  client.println("</marquee>");
+  client.println("</p>");
+  client.println("</body>");
   client.println("</html>");
  
   delay(1);
